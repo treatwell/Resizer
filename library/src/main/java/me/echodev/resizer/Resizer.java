@@ -7,9 +7,7 @@ import android.os.Environment;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
-import java.util.concurrent.Callable;
 
-import io.reactivex.Flowable;
 import me.echodev.resizer.util.ImageUtils;
 
 /**
@@ -157,39 +155,5 @@ public class Resizer {
      */
     public Bitmap getResizedBitmap() throws IOException {
         return ImageUtils.getScaledBitmap(targetLength, sourceImage);
-    }
-
-    /**
-     * Get the resized image file as RxJava Flowable.
-     * @return A Flowable that emits the resized image file or error.
-     */
-    public Flowable<File> getResizedFileAsFlowable() {
-        return Flowable.defer(new Callable<Flowable<File>>() {
-            @Override
-            public Flowable<File> call() {
-                try {
-                    return Flowable.just(getResizedFile());
-                } catch (IOException e) {
-                    return Flowable.error(e);
-                }
-            }
-        });
-    }
-
-    /**
-     * Get the resized image bitmap as RxJava Flowable.
-     * @return A Flowable that emits the resized image bitmap or error.
-     */
-    public Flowable<Bitmap> getResizedBitmapAsFlowable() {
-        return Flowable.defer(new Callable<Flowable<Bitmap>>() {
-            @Override
-            public Flowable<Bitmap> call() {
-                try {
-                    return Flowable.just(getResizedBitmap());
-                } catch (IOException e) {
-                    return Flowable.error(e);
-                }
-            }
-        });
     }
 }

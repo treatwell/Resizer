@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 2
-        versionName "tw_1.1"
+        versionName "tw1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,7 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    setProperty("archivesBaseName", "resizer-v${versionName}.${versionCode}")
+    setProperty("archivesBaseName", "resizer-TW1.1")
 }
 
 dependencies {

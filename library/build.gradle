@@ -19,6 +19,7 @@ android {
         }
     }
     setProperty("archivesBaseName", "resizer-TW1.1")
+    buildToolsVersion = versions.buildTools
 }
 
 dependencies {
@@ -28,8 +29,8 @@ dependencies {
     implementation "com.github.jkwiecien:EasyImage:${versions.easyImage}"
 
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation androidTestDeps.espressoCore
+    androidTestImplementation androidTestDeps.runner
 }
 
 apply plugin: 'kotlin-android'
